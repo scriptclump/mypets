@@ -10,4 +10,4 @@ Full Message: Content not found with the given ID
 
 Shortcode: ERR003
 Short Message: Content is not available right now
-Full Message: Please contact the admin team at scriptclump@gmail.com
+Full Message: Please contact the admin team at "Content service issue" scriptclump@gmail.com
