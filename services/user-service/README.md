@@ -1,9 +1,11 @@
 
-# Content Service
+# User Service
 
-This service will provide the content to the application with basic CRUD features. Kindly check the POSTMan file for more details.
+This service will do basic CRUD for user. Also perform authentication & authorization/
 
 ## End-points
 
 - /health-check
-- /content
+- /user
+- /user/authenticate
+- /user/logout
