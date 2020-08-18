@@ -1,9 +1,11 @@
 
-# Content Service
+# Appointment Service
 
-This service will provide the content to the application with basic CRUD features. Kindly check the POSTMan file for more details.
+This service will help to schedule the appointment with doctors. Kindly check the POSTMan file for more details.
 
 ## End-points
 
 - /health-check
-- /content
+- /schdule-appointment
+- /get-user-appointment/{userID}
+- /get-doctor-appointment/{userID}
