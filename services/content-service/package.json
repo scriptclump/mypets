@@ -34,14 +34,13 @@
     "redis": "^2.8.0",
     "sanitize-html": "^1.20.1",
     "sequelize": "^5.21.4",
-    "redis": "^2.8.0",
     "striptags": "^3.1.1",
     "winston": "^3.3.3"
   },
   "devDependencies": {
     "chalk": "^2.4.2",
     "figlet": "^1.5.0",
-    "forever": "^1.0.1",
+    "forever": "^3.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^1.19.4"
   }

@@ -1,8 +1,8 @@
 node_modules
 .vscode
 npm-debug.log
-grn/app/config/mysql.js
-grn/app/config/config.js
-grn/app/config/mysqldb.js
-grn/.env
+app/config/mysql.js
+app/config/config.js
+app/config/mysqldb.js
+app/.env
 .env
