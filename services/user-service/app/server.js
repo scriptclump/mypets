@@ -31,5 +31,5 @@ require('./config/mysql');
 // Starting the server
 var port = process.env.PORT || 1010;
 var server = app.listen(port);
-console.log(chalk.blue.bold(figlet.textSync('Content Service')));
+console.log(chalk.blue.bold(figlet.textSync('User Service')));
 console.log(chalk.green.bold(`Server Started at port: ${port}`));

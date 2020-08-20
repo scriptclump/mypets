@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var grnController = require('../controller/contentController');
+var grnController = require('../controller/userController');
 
 router.use(function (req, res, next) {
     next();
