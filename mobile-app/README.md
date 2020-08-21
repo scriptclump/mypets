@@ -1,3 +1,3 @@
 # Mobile application
 
-Hybrid mobile application
+A cross platfrom mobile application.
