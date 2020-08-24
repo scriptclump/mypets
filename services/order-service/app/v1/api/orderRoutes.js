@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var grnController = require('../controller/bannerController');
+var grnController = require('../controller/orderController');
 
 router.use(function (req, res, next) {
     next();
