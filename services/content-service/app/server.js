@@ -26,7 +26,6 @@ require('./config/express')(app);
 
 require('./config/api')(app);
 require('./config/routes')(app);
-require('./config/mysql');
 
 // Starting the server
 var port = process.env.PORT || 1010;
