@@ -14,6 +14,11 @@ var app = express();
 //var config = require('./config/config')[env];
 var methodOverride = require('method-override');
 
+const express = require('express');
+const schema = require('./schema');
+const cors = require('cors');
+
+
 const upload = multer({});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -27,8 +32,26 @@ require('./config/express')(app);
 require('./config/api')(app);
 require('./config/routes')(app);
 
-// Starting the server
+
+
+
+const { ApolloServer } = require('apollo-server-express');
+const url = "mongodb://localhost:27017/contentDb";
+const connect = mongoose.connect(url, { useNewUrlParser: true });
+connect.then((db) => {
+      console.log('Connected correctly to database server!');
+}, (err) => {
+      console.log(err);
+});
+const server = new ApolloServer({
+      typeDefs: schema.typeDefs,
+      resolvers: schema.resolvers
+});
+const app = express();
 var port = process.env.PORT || 1010;
-var server = app.listen(port);
-console.log(chalk.blue.bold(figlet.textSync('Content Service')));
-console.log(chalk.green.bold(`Server Started at port: ${port}`));
+app.use(bodyParser.json());
+app.use('*', cors());
+server.applyMiddleware({ app });
+app.listen({ port: port }, () =>
+  console.log(chalk.blue.bold(figlet.textSync(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`))));
+

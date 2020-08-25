@@ -1,14 +1,33 @@
-'use strict';
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const contentSchema = new Schema({
+    title: {
+       type: String,
+       required: true
+    },
+    metaTitle: {
+        type: String,
+        required: true
+     }, 
+    metaKeyword: {
+        type: String,
+        required: true
+    }, 
+    metaDesc: {
+        type: String,
+        required: true
+    }, 
+    excepts: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },    
+}, {
+    timestamps: true
+});
 
-const Sequelize = require('sequelize');
-const sequelize = require('../../config/sequelize');
-const moment = require('moment');
-var database = require('../../config/mysqldb');
-var http = require('http');
-const { fromCallback } = require('bluebird');
-
-
-module.exports = {
-
-   
-}
+var Contents = mongoose.model('Contents', contentSchema);
+module.exports = {Contents, contentSchema};
