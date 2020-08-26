@@ -24,7 +24,11 @@ const contentSchema = new Schema({
     content: {
         type: String,
         required: true
-    },    
+    }, 
+    status: {
+        type: Integer,
+        required: true
+    },  
 }, {
     timestamps: true
 });
