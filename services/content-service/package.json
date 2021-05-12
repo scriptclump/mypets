@@ -26,7 +26,7 @@
     "multer-s3": "^2.9.0",
     "node-libcurl": "^2.0.3",
     "node-pre-gyp": "^0.14.0",
-    "nodemailer": "^6.4.6",
+    "nodemailer": "^6.4.16",
     "queue": "^6.0.1",
     "redis": "^2.8.0",
     "request": "^2.88.2",
