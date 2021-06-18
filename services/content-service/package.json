@@ -32,7 +32,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "sanitize-html": "^1.20.1",
-    "striptags": "^3.1.1",
+    "striptags": "^3.2.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
