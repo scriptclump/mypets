@@ -1,8 +1,8 @@
 {
     "name": "content-service",
     "version": "0.1.0",
-    "description": "Node Project With TypeScript",
-    "author": "HyperScaleDev",
+    "description": "Content microservice with NodeJS & MongoDB",
+    "author": "scriptclump",
     "scripts": {
         "build-ts": "tsc",
         "build": "npm run build-ts && npm run lint",
