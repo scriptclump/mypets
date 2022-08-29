@@ -18,10 +18,10 @@ export function includeFolder(folder: any, extension = ".js", excluded_file: Arr
             });
             return config;
         } else {
-            throw new Error("No config files found");
+            throw new Error("No Config Files Found");
         }
     } else {
-        throw new Error("No config files found");
+        throw new Error("No Config Files Found");
     }
 }
 

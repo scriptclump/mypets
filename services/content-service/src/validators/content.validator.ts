@@ -5,7 +5,7 @@ import {
 } from "express-validator";
 import * as Constants from "../config/constants";
 
-export const ServerConnectionCreateValidator = [
+export const ContentCreateValidator = [
     body("centreHost").not().isEmpty().withMessage("centreHost cannot be empty"),
     body("centrePort").not().isEmpty().withMessage("centrePort cannot be empty"),
     body("centreUsername").not().isEmpty().withMessage("centreUsername cannot be empty"),
@@ -26,7 +26,7 @@ export const ServerConnectionCreateValidator = [
     body("vmId").not().isEmpty().withMessage("vmId cannot be empty"),
 ];
 
-export const ServerConnectionUpdateValidator = [
+export const ContentUpdateValidator = [
     check("id").not().isEmpty().withMessage("ID cannot be empty"),
     body("centreHost").not().isEmpty().withMessage("centreHost cannot be empty"),
     body("centrePort").not().isEmpty().withMessage("centrePort cannot be empty"),
@@ -48,22 +48,22 @@ export const ServerConnectionUpdateValidator = [
     body("vmId").not().isEmpty().withMessage("vmId cannot be empty"),
 ];
 
-export const ServerConnectionFindOneValidator = [
+export const ContentFindOneValidator = [
     check("id").not().isEmpty().withMessage("ID cannot be empty")
 ];
 
-export const ServerConnectionFindProxyVMDataValidator = [
+export const ContentFindProxyVMDataValidator = [
     body("proxyVMData").not().isEmpty().withMessage("proxyVMData cannot be empty"),
     body("proxyVMData").isArray(),
     body("proxyVMData.*.vmId").not().isEmpty().withMessage("proxyVMData.vmId cannot be empty"),
     body("proxyVMData.*.vProxyID").not().isEmpty().withMessage("proxyVMData.vProxyID cannot be empty"),
 ];
 
-export const ServerConnectionFindAllValidator = [
+export const ContentFindAllValidator = [
     check("type").optional().isIn([Constants.FLAGS.HARD_DELETE]).withMessage("please send the appropriate value"),
     check("page").optional().isDecimal().withMessage("please send the approriate value")
 ];
 
-export const ServerConnectionDeleteAllValidator = [
+export const ContentDeleteAllValidator = [
     check("type").optional().isIn([Constants.FLAGS.HARD_DELETE]).withMessage("please send the appropriate value")
 ];

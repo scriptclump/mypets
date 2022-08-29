@@ -14,5 +14,4 @@ router.get("/content", ContentFindAllValidator, throwValidationError, content.fi
 router.delete("/content/:id", ContentFindOneValidator, throwValidationError, content.deleteOne);
 router.delete("/content", ContentDeleteAllValidator, throwValidationError, content.deleteAll);
 
-
 export = router;

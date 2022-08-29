@@ -1,5 +1,5 @@
 # Content Services
-Microservice for the content action.
+Microservice for the managing the content.
 
 ## Installation
 - `npm install`
