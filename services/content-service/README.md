@@ -1,9 +1,17 @@
+# Content Services
+Microservice for the content action.
 
-# Content Service
+## Installation
+- `npm install`
 
-This service will provide the content to the application with basic CRUD features. Kindly check the POSTMan file for more details.
+## Run
+- `npm run build`
+- `npm run serve`
+- `npm run watch-debug`
 
-## End-points
+## Tech Stack
+- NodeJs
+- Express
+- Redis
+- Kafka
 
-- /health-check
-- /content
