@@ -1,9 +1,6 @@
 "use strict";
 
-import logger from "../util/logger";
-import { Response, Request, NextFunction } from "express";
 import { BadRequest } from "../util/GeneralError";
-import { generatePassword, success } from "../util/Function";
 import { Content, IContent } from "../models/content.model";
 import {ObjectId} from "mongodb";
 import { ProxyVMInterface } from "../models/dto/proxyvminterface";
