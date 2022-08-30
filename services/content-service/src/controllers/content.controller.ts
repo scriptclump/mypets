@@ -10,7 +10,7 @@ import * as ContentService from "../services/content.service";
 import * as Constants from "../config/constants";
 
 /**
- * Create Content
+ * Create content
  * @route POST /Content
  */
 export const create = async (req: Request, res: Response, next: NextFunction) => {
@@ -25,7 +25,7 @@ export const create = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 /**
- * Update Content
+ * Update content
  * @route PUT /Content/:id
  */
 export const update = async (req: Request, res: Response, next: NextFunction) => {
@@ -49,10 +49,8 @@ export const update = async (req: Request, res: Response, next: NextFunction) =>
     }
 };
 
-
-
 /**
- * FindOne Content
+ * FindOne content
  * @route GET /Content/:id
  */
 export const findOne = async (req: Request, res: Response, next: NextFunction) => {
@@ -67,22 +65,7 @@ export const findOne = async (req: Request, res: Response, next: NextFunction) =
 };
 
 /**
- * Find Content By Proxy and VmId
- * @route POST /Content/proxy
- */
-export const findByProxyIdAndVmId = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const { proxyVMData } = req.body;
-        const content: Array<IContent> =  await ContentService.getContentByProxyIdAndVmId(proxyVMData);
-        res.json(success("Content found", content));
-    } catch (error) {
-        logger.error(error);
-        next(error);
-    }
-};
-
-/**
- * Find Content
+ * Find content
  * @route GET /Content/
  */
  export const findAll = async (req: Request, res: Response, next: NextFunction) => {
@@ -113,7 +96,7 @@ export const findByProxyIdAndVmId = async (req: Request, res: Response, next: Ne
 
 
 /**
- * hard delete one Content
+ * Hard delete one content
  * @route DELETE /Content/:id
  */
 export const deleteOne = async (req: Request, res: Response, next: NextFunction) => {
@@ -142,7 +125,7 @@ export const deleteOne = async (req: Request, res: Response, next: NextFunction)
 };
 
 /**
- * hard delete all Content
+ * Hard delete all content
  * @route DELETE /Content
  */
 export const deleteAll = async (req: Request, res: Response, next: NextFunction) => {

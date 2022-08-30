@@ -3,8 +3,6 @@
 import { BadRequest } from "../util/GeneralError";
 import { Content, IContent } from "../models/content.model";
 import {ObjectId} from "mongodb";
-import { ProxyVMInterface } from "../models/dto/proxyvminterface";
-
 
 /**
  * Get Content
@@ -15,20 +13,6 @@ export const getContent = async (id: string): Promise<IContent> => {
         if (!content) {
             throw new BadRequest("Content ID does not exists");
         }
-        return content;
-    } catch(error) {
-        throw error;
-    }
-};
-
-/**
- * Get Content
- */
-export const getContentByProxyIdAndVmId = async (vProxyAndVMIDData: Array<ProxyVMInterface>): Promise<Array<IContent>> => {
-    try {
-        const content: Array<IContent> =  await (Content as any).find({
-            $or : vProxyAndVMIDData
-        });
         return content;
     } catch(error) {
         throw error;
