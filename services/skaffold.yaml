@@ -8,6 +8,14 @@ build:
   local:
     push: false
   artifacts:
+    - image: basantxbs/mypet:content
+      context: content
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: stephengrider/auth
       context: auth
       docker:
