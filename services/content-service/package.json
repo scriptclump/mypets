@@ -32,7 +32,7 @@
         "express-async-errors": "^3.1.1",
         "express-validator": "6.9.2",
         "jsonwebtoken": "^8.5.1",
-        "lodash": "4.17.20",
+        "lodash": "4.17.21",
         "lusca": "1.6.1",
         "mongoose": "^5.12.6",
         "mongoose-delete": "^0.5.3",
