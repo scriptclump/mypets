@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: content-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: content
+  template:
+    metadata:
+      labels:
+        app: content
+    spec:
+      containers:
+        - name: content
+          image: basantxbs/mypet:content
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://content-mongo-srv:27017/content'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: content-srv
+spec:
+  selector:
+    app: content
+  ports:
+    - name: content
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
