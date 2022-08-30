@@ -34,11 +34,6 @@ export const update = async (req: Request, res: Response, next: NextFunction) =>
         const content: IContent =  await ContentService.getContent(id);
 
         const content_record: IContent = req.body;
-        content_record.centrePassword = generatePassword(content.centrePassword);
-        content_record.vProxyPassword = generatePassword(content.vProxyPassword);
-        content_record.vcPassword = generatePassword(content.vcPassword);
-        content_record.vmPassword = generatePassword(content.vmPassword);
-
         await Content.updateOne({_id : new ObjectId(id)}, {$set : content_record});
 
         const record = Object.assign({}, {...content_record, _id: id});
