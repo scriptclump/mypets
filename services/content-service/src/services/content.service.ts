@@ -10,7 +10,7 @@ import { ProxyVMInterface } from "../models/dto/proxyvminterface";
 
 
 /**
- * Get Server Connection
+ * Get Content
  */
 export const getContent = async (id: string): Promise<IContent> => {
     try {
@@ -25,7 +25,7 @@ export const getContent = async (id: string): Promise<IContent> => {
 };
 
 /**
- * Get Server Connection
+ * Get Content
  */
 export const getContentByProxyIdAndVmId = async (vProxyAndVMIDData: Array<ProxyVMInterface>): Promise<Array<IContent>> => {
     try {

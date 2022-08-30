@@ -4,7 +4,7 @@ import { Unauthorized } from "../util/GeneralError";
 
 
 export default async (req: Request, res: Response, next: NextFunction) => {
-    let token: string = "";
+    let token = "";
 
     if (req.headers && req.headers.authorization) {
         token = req.headers.authorization.split(" ")[1];
