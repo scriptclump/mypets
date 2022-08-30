@@ -6,11 +6,11 @@ import { BadRequest } from "../util/GeneralError";
 import { generatePassword, success } from "../util/Function";
 import { Content, IContent } from "../models/content.model";
 import {ObjectId} from "mongodb";
-import * as ContentService from "../services/serverconnection.service";
+import * as ContentService from "../services/content.service";
 import * as Constants from "../config/constants";
 
 /**
- * Create Server Connection
+ * Create Content
  * @route POST /Content
  */
 export const create = async (req: Request, res: Response, next: NextFunction) => {
@@ -25,7 +25,7 @@ export const create = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 /**
- * Update Server Connection
+ * Update Content
  * @route PUT /Content/:id
  */
 export const update = async (req: Request, res: Response, next: NextFunction) => {
@@ -52,7 +52,7 @@ export const update = async (req: Request, res: Response, next: NextFunction) =>
 
 
 /**
- * FindOne Server Connection
+ * FindOne Content
  * @route GET /Content/:id
  */
 export const findOne = async (req: Request, res: Response, next: NextFunction) => {
@@ -67,7 +67,7 @@ export const findOne = async (req: Request, res: Response, next: NextFunction) =
 };
 
 /**
- * Find Server Connection By Proxy and VmId
+ * Find Content By Proxy and VmId
  * @route POST /Content/proxy
  */
 export const findByProxyIdAndVmId = async (req: Request, res: Response, next: NextFunction) => {
@@ -82,7 +82,7 @@ export const findByProxyIdAndVmId = async (req: Request, res: Response, next: Ne
 };
 
 /**
- * Find Server Connection
+ * Find Content
  * @route GET /Content/
  */
  export const findAll = async (req: Request, res: Response, next: NextFunction) => {
@@ -113,7 +113,7 @@ export const findByProxyIdAndVmId = async (req: Request, res: Response, next: Ne
 
 
 /**
- * hard delete one Server Connection
+ * hard delete one Content
  * @route DELETE /Content/:id
  */
 export const deleteOne = async (req: Request, res: Response, next: NextFunction) => {
@@ -132,10 +132,9 @@ export const deleteOne = async (req: Request, res: Response, next: NextFunction)
             if(status["deletedCount"] || status["deleted"]) {
                 res.json(success("Content deleted successfully"));
             } else {
-                throw new BadRequest("unable to delete Content");
+                throw new BadRequest("Unable to delete content");
             }
         }
-
     } catch (error) {
         logger.error(error);
         next(error);
@@ -143,7 +142,7 @@ export const deleteOne = async (req: Request, res: Response, next: NextFunction)
 };
 
 /**
- * hard delete all Server Connection
+ * hard delete all Content
  * @route DELETE /Content
  */
 export const deleteAll = async (req: Request, res: Response, next: NextFunction) => {
@@ -161,7 +160,7 @@ export const deleteAll = async (req: Request, res: Response, next: NextFunction)
             if(status["deletedCount"] || status["nModified"]) {
                 res.json(success("Content deleted successfully"));
             } else {
-                throw new BadRequest("unable to delete Content");
+                throw new BadRequest("Unable to delete content");
             }
         }
     } catch (error) {
