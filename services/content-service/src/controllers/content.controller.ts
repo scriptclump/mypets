@@ -31,17 +31,17 @@ export const create = async (req: Request, res: Response, next: NextFunction) =>
 export const update = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id } = req.params;
-        const server_connection: IContent =  await ContentService.getContent(id);
+        const content: IContent =  await ContentService.getContent(id);
 
-        const server_connection_record: IContent = req.body;
-        server_connection_record.centrePassword = generatePassword(server_connection.centrePassword);
-        server_connection_record.vProxyPassword = generatePassword(server_connection.vProxyPassword);
-        server_connection_record.vcPassword = generatePassword(server_connection.vcPassword);
-        server_connection_record.vmPassword = generatePassword(server_connection.vmPassword);
+        const content_record: IContent = req.body;
+        content_record.centrePassword = generatePassword(content.centrePassword);
+        content_record.vProxyPassword = generatePassword(content.vProxyPassword);
+        content_record.vcPassword = generatePassword(content.vcPassword);
+        content_record.vmPassword = generatePassword(content.vmPassword);
 
-        await Content.updateOne({_id : new ObjectId(id)}, {$set : server_connection_record});
+        await Content.updateOne({_id : new ObjectId(id)}, {$set : content_record});
 
-        const record = Object.assign({}, {...server_connection_record, _id: id});
+        const record = Object.assign({}, {...content_record, _id: id});
         res.json(success("Content updated successfully", record));
     } catch(error) {
         logger.error(error);
@@ -58,8 +58,8 @@ export const update = async (req: Request, res: Response, next: NextFunction) =>
 export const findOne = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id } = req.params;
-        const server_connection: IContent =  await ContentService.getContent(id);
-        res.json(success("Content found", server_connection));
+        const content: IContent =  await ContentService.getContent(id);
+        res.json(success("Content found", content));
     } catch (error) {
         logger.error(error);
         next(error);
@@ -73,8 +73,8 @@ export const findOne = async (req: Request, res: Response, next: NextFunction) =
 export const findByProxyIdAndVmId = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { proxyVMData } = req.body;
-        const server_connection: Array<IContent> =  await ContentService.getContentByProxyIdAndVmId(proxyVMData);
-        res.json(success("Content found", server_connection));
+        const content: Array<IContent> =  await ContentService.getContentByProxyIdAndVmId(proxyVMData);
+        res.json(success("Content found", content));
     } catch (error) {
         logger.error(error);
         next(error);
@@ -120,13 +120,13 @@ export const deleteOne = async (req: Request, res: Response, next: NextFunction)
     try {
         const { id } = req.params;
         const { type } = req.body;
-        const server_connection: IContent =  await ContentService.getContent(id);
+        const content: IContent =  await ContentService.getContent(id);
         
         let status: any;
         if (type && type === Constants.FLAGS.HARD_DELETE) {
             status = await Content.deleteOne({ _id: new ObjectId(id) });
         } else {
-            status = await server_connection.delete();
+            status = await content.delete();
         }
         if (status) {
             if(status["deletedCount"] || status["deleted"]) {
