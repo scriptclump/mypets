@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: content-service
-        image: TODO
+        image: basantxbs/mypet:content
         resources:
           limits:
             memory: "128Mi"
