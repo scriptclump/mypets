@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: partner-service-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: partner-service-mongo
+  template:
+    metadata:
+      labels:
+        app: partner-service-mongo
+    spec:
+      containers:
+      - name: partner-service-mongo
+        image: partner-service-mongo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: partner-service-mongo-srv
+spec:
+  selector:
+    app: partner-service-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
